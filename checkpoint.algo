@@ -1,0 +1,49 @@
+Algorithme Checkpoint_Algo1
+    Var
+        sentence : CHAR ;
+        length : Integer ;
+        wordCount: Integer ;
+        vowelCount: Integer ;
+        c: Character ;
+        insideWord: Integer ;
+        i: Integer ;
+        
+    Begin
+        length := 0 ;
+        wordCount := 0 ;
+        vowelCount := 0 ;
+        insideWord := 0 ;
+
+        sentence = Display("Enter a sentence (ends with a point): "); 
+        Read (sentence) ;
+
+        
+        For i from 0 to length of sentence - 1 DO :
+            c :=  sentence[i]
+            c :=  tolower(c)
+
+            If (c != ' ') Then:
+                length :=  length + 1 
+            End If
+
+            If ( c = 'a' OR c = 'e' OR c = 'i' OR c = 'o' OR c = 'u' ) Then :
+                vowelCount := vowelCount + 1
+            End If
+
+            If ( c = ' ' OR c = '\n' ) Then
+                If ( insideWord = 1 Then )
+                    wordCount := wordCount + 1
+                    insideWord := 0 
+                Else
+                    insideWord := 1 
+            End If
+        End For
+
+        If ( insideWord = 1 ) Then :
+            wordCount := wordCount + 1
+        End If
+
+        Display ("Length of the sentence: ", length)
+        Display ("Number of words: ", wordCount)
+        Display ("Number of vowels: ", vowelCount)
+    End
